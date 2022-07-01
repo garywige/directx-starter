@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="IMessageHandler.h" />
     <ClInclude Include="MessageHandler.h" />
     <ClInclude Include="Procedure.h" />
     <ClInclude Include="WindowCreator.h" />

@@ -1,7 +1,7 @@
 #pragma once
-#include <Windows.h>
+#include "IMessageHandler.h"
 
-class MessageHandler
+class MessageHandler : public IMessageHandler
 {
 public:
 	MessageHandler();
