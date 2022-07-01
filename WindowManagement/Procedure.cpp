@@ -14,6 +14,9 @@ LRESULT CALLBACK Procedure::Proc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPa
 	case WM_DESTROY:
 		destroy();
 		return 0;
+	case WM_CLOSE:
+		DestroyWindow(hWnd);
+		return 0;
 	}
 
 	return DefWindowProc(hWnd, uMsg, wParam, lParam);

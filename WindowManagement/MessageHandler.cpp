@@ -4,9 +4,14 @@ MessageHandler::MessageHandler(){}
 
 void MessageHandler::Handle(MSG* pMsg)
 {
-	while (GetMessage(pMsg, NULL, 0, 0) > 0)
+	while (pMsg->message != WM_QUIT)
 	{
-		TranslateMessage(pMsg);
-		DispatchMessage(pMsg);
+		while (PeekMessage(pMsg, NULL, 0, 0, PM_REMOVE) && pMsg->message != WM_QUIT)
+		{
+			TranslateMessage(pMsg);
+			DispatchMessage(pMsg);
+		}
+
+		// TODO: game loop
 	}
 }

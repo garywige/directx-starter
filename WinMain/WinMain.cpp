@@ -26,4 +26,6 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine
 
 	// Handle messages
 	MessageHandler().Handle(&msg);
+	
+	return 0;
 }
