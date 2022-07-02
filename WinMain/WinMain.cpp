@@ -11,13 +11,16 @@
 
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine, int nCmdShow)
 {
+	int width = 800;
+	int height = 600;
+
 	// Register the window class
 	const wchar_t className[] = L"WigeDevMain";
 	WindowRegistrar().Register(className, Procedure::Proc, hInstance);
 
 	// Create the window
 	IStateManager* pStateMgr = SingletonFactory<StateManager>().Create();
-	HWND hWnd = WindowCreator(pStateMgr).Create(className, L"DirectX Starter", hInstance, 800, 600);
+	HWND hWnd = WindowCreator(pStateMgr).Create(className, L"DirectX Starter", hInstance, width, height);
 	if (hWnd == NULL)
 		return 0;
 
@@ -27,7 +30,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine
 	IDXGISwapChain* pSwapChain = 0;
 	ID3D11Device* pDevice = 0;
 	ID3D11DeviceContext* pContext = 0;
-	D3DInitializer().Initialize(hWnd, &pSwapChain, &pDevice, &pContext);
+	D3DInitializer(hWnd, width, height).Initialize(&pSwapChain, &pDevice, &pContext);
 
 	// Enter game loop
 	MSG msg = {};
