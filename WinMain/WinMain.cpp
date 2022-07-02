@@ -16,7 +16,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine
 
 	// Create the window
 	IStateManager* pStateMgr = SingletonFactory<StateManager>().Create();
-	HWND hWnd = WindowCreator(pStateMgr).Create(className, L"DirectX Starter", hInstance);
+	HWND hWnd = WindowCreator(pStateMgr).Create(className, L"DirectX Starter", hInstance, 800, 600);
 	if (hWnd == NULL)
 		return 0;
 
