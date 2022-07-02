@@ -10,15 +10,13 @@
 
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine, int nCmdShow)
 {
-	// Variables
-	const wchar_t className[] = L"WigeDevMain";
-	StateManager* pStateManager = SingletonFactory<StateManager>().Create();
-
 	// Register the window class
+	const wchar_t className[] = L"WigeDevMain";
 	WindowRegistrar().Register(className, Procedure::Proc, hInstance);
 
 	// Create the window
-	HWND hWnd = WindowCreator(pStateManager).Create(className, L"DirectX Starter", hInstance);
+	IStateManager* pStateMgr = SingletonFactory<StateManager>().Create();
+	HWND hWnd = WindowCreator(pStateMgr).Create(className, L"DirectX Starter", hInstance);
 	if (hWnd == NULL)
 		return 0;
 

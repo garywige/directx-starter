@@ -3,6 +3,7 @@
 template <class T>
 SingletonFactory<T>::SingletonFactory()
 {
+	pSingleton = 0;
 }
 
 template<class T>
