@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GameLoop.h" />
     <ClInclude Include="IMessageHandler.h" />
     <ClInclude Include="MessageHandler.h" />
     <ClInclude Include="Procedure.h" />
@@ -26,6 +27,7 @@
     <ClInclude Include="WindowRegistrar.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="GameLoop.cpp" />
     <ClCompile Include="MessageHandler.cpp" />
     <ClCompile Include="Procedure.cpp" />
     <ClCompile Include="WindowCreator.cpp" />

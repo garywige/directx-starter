@@ -6,12 +6,12 @@
 #include "..\Factory\SingletonFactory.h"
 #include "..\Factory\SingletonFactory.cpp"
 #include "..\State\StateManager.h"
+#include "..\WindowManagement\GameLoop.h"
 
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine, int nCmdShow)
 {
 	// Variables
 	const wchar_t className[] = L"WigeDevMain";
-	MSG msg = {};
 	StateManager* pStateManager = SingletonFactory<StateManager>().Create();
 
 	// Register the window class
@@ -24,8 +24,10 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine
 
 	ShowWindow(hWnd, nCmdShow);
 
-	// Handle messages
-	MessageHandler().Handle(&msg);
+	// Enter game loop
+	MSG msg = {};
+	MessageHandler handler;
+	GameLoop((IMessageHandler*)&handler, &msg).Loop();
 	
 	return 0;
 }

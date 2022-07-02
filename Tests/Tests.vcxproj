@@ -127,6 +127,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="FakeMessageHandler.cpp" />
+    <ClCompile Include="GameLoopTests.cpp" />
     <ClCompile Include="SingletonFactoryTests.cpp" />
     <ClCompile Include="Tests.cpp" />
     <ClCompile Include="TestsBase.cpp" />
@@ -143,7 +145,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="FakeStateManager.h" />
+    <ClInclude Include="FakeMessageHandler.h" />
+    <ClInclude Include="GameLoopTests.h" />
     <ClInclude Include="SingletonFactoryTests.h" />
     <ClInclude Include="TestsBase.h" />
   </ItemGroup>
