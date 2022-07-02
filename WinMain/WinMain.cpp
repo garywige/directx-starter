@@ -18,7 +18,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine
 	WindowRegistrar().Register(className, Procedure::Proc, hInstance);
 
 	// Create the window
-	HWND hWnd = WindowCreator(pStateManager).Create(className, L"My Window", hInstance);
+	HWND hWnd = WindowCreator(pStateManager).Create(className, L"DirectX Starter", hInstance);
 	if (hWnd == NULL)
 		return 0;
 
