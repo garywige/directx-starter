@@ -7,6 +7,7 @@
 #include "..\Factory\SingletonFactory.cpp"
 #include "..\State\StateManager.h"
 #include "..\WindowManagement\GameLoop.h"
+#include "..\D3D\D3DInitializer.h"
 
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine, int nCmdShow)
 {
@@ -21,6 +22,12 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine
 		return 0;
 
 	ShowWindow(hWnd, nCmdShow);
+
+	// Initialize D3D
+	IDXGISwapChain* pSwapChain = 0;
+	ID3D11Device* pDevice = 0;
+	ID3D11DeviceContext* pContext = 0;
+	D3DInitializer().Initialize(hWnd, &pSwapChain, &pDevice, &pContext);
 
 	// Enter game loop
 	MSG msg = {};
