@@ -17,9 +17,14 @@ D3DInitializer::~D3DInitializer()
 	if (pDevice) pDevice->Release();
 	if (pSwapChain) pSwapChain->Release();
 	if (pRTVBackBuffer) pRTVBackBuffer->Release();
+
+	pContext = 0;
+	pDevice = 0;
+	pSwapChain = 0;
+	pRTVBackBuffer = 0;
 }
 
-void D3DInitializer::Initialize(IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ID3D11DeviceContext** ppContext)
+void D3DInitializer::Initialize(IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ID3D11DeviceContext** ppContext, ID3D11RenderTargetView** ppRTVBackBuffer)
 {
 	initD3D();
 	setRenderTarget();
@@ -28,6 +33,7 @@ void D3DInitializer::Initialize(IDXGISwapChain** ppSwapChain, ID3D11Device** ppD
 	*ppSwapChain = pSwapChain;
 	*ppDevice = pDevice;
 	*ppContext = pContext;
+	*ppRTVBackBuffer = pRTVBackBuffer;
 }
 
 void D3DInitializer::initD3D()

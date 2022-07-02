@@ -9,7 +9,7 @@ public:
 	D3DInitializer(HWND hWnd, FLOAT width, FLOAT height);
 	~D3DInitializer();
 
-	void Initialize(IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ID3D11DeviceContext** ppContext);
+	void Initialize(IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ID3D11DeviceContext** ppContext, ID3D11RenderTargetView** ppRTVBackBuffer);
 
 protected:
 	HWND hWnd;

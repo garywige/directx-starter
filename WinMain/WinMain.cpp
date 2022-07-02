@@ -30,12 +30,14 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine
 	IDXGISwapChain* pSwapChain = 0;
 	ID3D11Device* pDevice = 0;
 	ID3D11DeviceContext* pContext = 0;
-	D3DInitializer(hWnd, width, height).Initialize(&pSwapChain, &pDevice, &pContext);
+	ID3D11RenderTargetView* pRTVBackBuffer = 0;
+	D3DInitializer d3dInit(hWnd, width, height);
+	d3dInit.Initialize(&pSwapChain, &pDevice, &pContext, &pRTVBackBuffer);
 
 	// Enter game loop
 	MSG msg = {};
 	MessageHandler handler;
-	GameLoop((IMessageHandler*)&handler, &msg).Loop();
+	GameLoop((IMessageHandler*)&handler, &msg, pSwapChain, pDevice, pContext, pRTVBackBuffer).Loop();
 	
 	return 0;
 }
